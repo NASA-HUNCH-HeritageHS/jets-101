@@ -1,0 +1,18 @@
+#blog-head p {
+	width: 89%;
+	background-color:#CCC;
+	padding-left:1%;
+	font-size: 20px;
+	color:#000;
+	border: thin double #999;
+}
+#blog-body p {
+	margin-top:-20px;
+	padding-top:-20px;
+	padding-left:2%;
+	width:88%;
+	background-color:#CCC;
+	font-size: 16px;
+	color:#000;
+	border: thin double #999;
+}
