@@ -39,7 +39,7 @@ function calendar()
                 beg_j=setDate(0);
         }
         beg_j = beg_j.getDay();
-        document.write('<table class="cal_calendar" onload="opacity(document.getElementById(\'cal_body\'),0);"><tbody id="cal_body"><tr><th colspan="7"> &#10094 '+date_today+' &#10095 </th></tr>');
+        document.write('<table class="cal_calendar" onload="opacity(document.getElementById(\'cal_body\'),0);"><tbody id="cal_body"><tr><th colspan="7"> <a class="prevm">&#10094</a> '+date_today+' <a class="nextm">&#10095</a> </th></tr>');
         document.write('<tr class="cal_d_weeks"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>');
         week = 0;
         for(i=1;i<=beg_j;i++)
