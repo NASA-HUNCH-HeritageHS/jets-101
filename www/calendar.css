@@ -1,33 +1,45 @@
+:root {
+  --color1: #10BEFF;
+  --color2: #fff;
+  --color3: #0D98CC;
+  --color4: #085F7F;
+  --color5: #2E697F;
+}
+
 .cal_calendar
 {
-        border:1px solid black;
-        padding:1px;
-        background-color:#4594ff;
+        border:0px solid black;
+        padding:0px;
+        background-color: var(--color5);
         width:300px;
         margin:auto;
         height:246px;
-        background-image:url('http://www.webestools.com/ftp/ybouane/scripts_tutorials/javascript/calendar/bak-300-250.gif');
+        
 }
 .cal_calendar th
 {
-        border:1px solid black;
-        background-color:#ffffff;
-                width:36px;
+        border:1px solid var(--color1);
+        background-color:var(--color3);
+        width:36px;
 }
 .cal_calendar td
 {
-        border:1px solid black;
-        background-color:#ffffff;
+        border:1px solid var(--color3);
+        
         text-align:center;
-                width:36px;
-                height:36px;
+        width:36px;
+        height:36px;
 }
 .cal_today
 {
-        color:#ff0000;
-                font-weight:bold;
+        color:var(--color2);
+        font-weight:bold;
+		background-color:var(--color3);
 }
 .cal_days_bef_aft
 {
-        color:#5a779e;
+		color:var(--color3);
+}
+.cal_body {
+		color:var(--color4);
 }

@@ -2,12 +2,17 @@ function setStyle(id,style,value)
 {
     id.style[style] = value;
 }
+
+function day19()
+{
+window.open("cat5cybercanes.org");
+}
 function opacity(el,opacity)
 {
         setStyle(el,"filter:","alpha(opacity="+opacity+")");
-        setStyle(el,"-moz-opacity",opacity/100);
-        setStyle(el,"-khtml-opacity",opacity/100);
-        setStyle(el,"opacity",opacity/100);
+        setStyle(el,"-moz-opacity",opacity/0);
+        setStyle(el,"-khtml-opacity",opacity/0);
+        setStyle(el,"opacity",opacity/0);
 }
 function calendar()
 {
@@ -19,7 +24,7 @@ function calendar()
         {
                 year += 1900;
         }
-        months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'Jully', 'August', 'September', 'October', 'November', 'December');
+        months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
         days_in_month = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
         if(year%4 == 0 && year!=1900)
         {
@@ -34,7 +39,7 @@ function calendar()
                 beg_j=setDate(0);
         }
         beg_j = beg_j.getDay();
-        document.write('<table class="cal_calendar" onload="opacity(document.getElementById(\'cal_body\'),20);"><tbody id="cal_body"><tr><th colspan="7">'+date_today+'</th></tr>');
+        document.write('<table class="cal_calendar" onload="opacity(document.getElementById(\'cal_body\'),0);"><tbody id="cal_body"><tr><th colspan="7"> &#10094 '+date_today+' &#10095 </th></tr>');
         document.write('<tr class="cal_d_weeks"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>');
         week = 0;
         for(i=1;i<=beg_j;i++)
@@ -54,7 +59,7 @@ function calendar()
                 }
                 else
                 {
-                        document.write('<td>'+i+'</td>');
+                        document.write('<td onclick="day19()">'+i+'</td>');
                 }
                 week++;
                 if(week==7)
@@ -74,6 +79,7 @@ function calendar()
                 }
         }
         document.write('</tbody></table>');
-        opacity(document.getElementById('cal_body'),70);
+        opacity(document.getElementById('cal_body'),255);
         return true;
 }
+/* onclick="day'+i+'()" */
