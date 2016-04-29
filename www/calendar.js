@@ -2,11 +2,6 @@ function setStyle(id,style,value)
 {
     id.style[style] = value;
 }
-
-function day19()
-{
-window.open("cat5cybercanes.org");
-}
 function opacity(el,opacity)
 {
         setStyle(el,"filter:","alpha(opacity="+opacity+")");
@@ -59,7 +54,7 @@ function calendar()
                 }
                 else
                 {
-                        document.write('<td onclick="day19()">'+i+'</td>');
+                        document.write('<td><a>'+i+'</a></td>');
                 }
                 week++;
                 if(week==7)

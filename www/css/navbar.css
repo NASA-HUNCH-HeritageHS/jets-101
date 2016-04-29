@@ -12,9 +12,10 @@ nav {
   color: var(--color2);
   text-decoration: none;
   margin-botom:10px;
-  position:inherit;
+  position:relative;
   font: normal normal normal 16px/20px 'FontAwesome', 'Source Sans Pro', Helvetica, Arial, sans-serif;
   background: var(--color1);
+  z-index: 100;
 }
 nav li a:visited {
 	color: var(--color2);
