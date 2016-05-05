@@ -1,6 +1,12 @@
 /* If you are reading this, piss off unless you're someone who is on the webdev team of the C5CC.
 Otherwise, you should be here: http://cat5cybercanes.org/ */
-
+:root {
+  --color1: #10BEFF;
+  --color2: #fff;
+  --color3: #0D98CC;
+  --color4: #085F7F;
+  --color5: #2E697F;
+}
 #t1 a {
 	color:White;
 	text-decoration:none;
@@ -115,4 +121,47 @@ Otherwise, you should be here: http://cat5cybercanes.org/ */
     left: 50%;
     position: absolute;
     z-index: 99;
+}
+
+.prevB {
+	padding:2px 20%;
+	text-align:center;
+	text-decoration:none;
+	color:white;
+	background-color:var(--color3);
+	border-color:var(--color3);
+	float:left;
+	transition:0.5s;
+}
+.prevB:hover {
+	background-color:var(--color1);
+	border-color:var(--color3);
+	transition:0.25s;
+}
+.prevB:active {
+	background-color:var(--color4);
+	border-color:var(--color3);
+	transition:0.25s;
+
+}
+
+.nextB {
+	padding:2px 20%;
+	text-align:center;
+	text-decoration:none;
+	color:white;
+	background-color:var(--color3);
+	border-color:var(--color3);
+	float:right;
+	transition:0.5s;
+}
+.nextB:hover {
+	background-color:var(--color1);
+	border-color:var(--color3);
+	transition:0.25s;
+}
+.nextB:active {
+	background-color:var(--color4);
+	border-color:var(--color3);
+	transition:0.25s;
 }
