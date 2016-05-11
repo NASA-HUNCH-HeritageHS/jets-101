@@ -18,7 +18,17 @@ function onLoad() {
 	if (localStorage.getItem("valve") === null){
 		to0();
 		}
+		eventC();
 		}
+		
+		/* function onLoad() {
+			var valve = localStorage.getItem("valve");
+			var graph = document.getElementsByClassName("Body");
+			var length = graph.length;
+			valve
+			to+'v'();
+		} */
+		
 
 function to0() {
     var graph = document.getElementsByClassName("Body");
@@ -81,3 +91,8 @@ function nextG() {
 		onLoad();
 	}
 }
+
+
+
+
+

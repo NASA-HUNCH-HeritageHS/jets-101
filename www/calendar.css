@@ -43,30 +43,36 @@
 .cal_body {
 		color:var(--color4);
 }
-
+/* 
 #cal_body > tr:nth-child(5) > td:nth-child(2) > a{
 	color:var(--color2)
 }
-
+#cal_body > tr:nth-child(5) > td:nth-child(2) > a:hover{
+	color:var(--color3)
+} */
 
 #cal_body tr:nth-child(1) th  a.prevm {
 	color:var(--color4);
 	padding:0 10%;
 }
-
 #cal_body tr:nth-child(1) th  a:hover.prevm {
 	color:var(--color2);
+	text-shadow:2px 2px 3px Black;
+}
+#cal_body tr:nth-child(1) th  a:active.prevm {
+	color:LightGrey;
+	text-shadow:2px 2px 3px Black;
 }
 
 #cal_body tr:nth-child(1) th  a.nextm  {
 	color:var(--color4);
 	padding:0 10%;
 }
-
-#cal_body tr:nth-child(1) th  a:hover.nextm  {
+#cal_body tr:nth-child(1) th  a:hover.nextm {
 	color:var(--color2);
+	text-shadow:2px 2px 3px Black;
 }
-	padding:100px;
+#cal_body tr:nth-child(1) th  a:active.nextm {
+	color:LightGrey;
+	text-shadow:2px 2px 3px Black;
 }
-
-

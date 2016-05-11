@@ -50,11 +50,11 @@ function calendar()
                 }
                 if(day==i)
                 {
-                        document.write('<td class="cal_today">'+i+'</td>');
+                        document.write('<td class="cal_today"><a class="tooltip"><span title=" ">'+i+'</span></a></td>');
                 }
                 else
                 {
-                        document.write('<td><a>'+i+'</a></td>');
+                        document.write('<td><a class="tooltip"><span title=" ">'+i+'</span></a></td>');
                 }
                 week++;
                 if(week==7)
@@ -77,4 +77,9 @@ function calendar()
         opacity(document.getElementById('cal_body'),255);
         return true;
 }
-/* onclick="day'+i+'()" */
+
+function eventC() {
+	arr = new Array("Go to Charles' house.","b");
+	
+	document.getElementsByClassName("tooltip")[0].title = arr[0];
+}
