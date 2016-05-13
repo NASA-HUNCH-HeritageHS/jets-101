@@ -76,3 +76,7 @@
 	color:LightGrey;
 	text-shadow:2px 2px 3px Black;
 }
+a span {
+	width:100%;
+	height:100%;
+}
