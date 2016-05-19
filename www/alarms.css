@@ -1,0 +1,80 @@
+:root {
+  --color1: #10BEFF;
+  --color2: #fff;
+  --color3: #0D98CC;
+  --color4: #085F7F;
+  --color5: #2E697F;
+}
+
+.alarm_calendar
+{
+        border:0px solid black;
+        padding:0px;
+        background-color: var(--color5);
+        width:300px;
+        margin:auto;
+        height:246px;
+        
+}
+.alarm_calendar th
+{
+        border:1px solid var(--color1);
+        background-color:var(--color3);
+        width:36px;
+}
+.alarm_calendar td
+{
+        border:1px solid var(--color3);
+        
+        text-align:center;
+        width:36px;
+        height:36px;
+}
+.alarm_today
+{
+        color:var(--color2);
+        font-weight:bold;
+		background-color:var(--color3);
+}
+
+}
+.alarm_body {
+		color:var(--color4);
+}
+/* 
+#alarm_body > tr:nth-child(5) > td:nth-child(2) > a{
+	color:var(--color2)
+}
+#alarm_body > tr:nth-child(5) > td:nth-child(2) > a:hover{
+	color:var(--color3)
+} */
+
+#alarm_body tr:nth-child(1) th  a.prevm {
+	color:var(--color4);
+	padding:0 10%;
+}
+#alarm_body tr:nth-child(1) th  a:hover.prevm {
+	color:var(--color2);
+	text-shadow:2px 2px 3px Black;
+}
+#alarm_body tr:nth-child(1) th  a:active.prevm {
+	color:LightGrey;
+	text-shadow:2px 2px 3px Black;
+}
+
+#alarm_body tr:nth-child(1) th  a.nextm  {
+	color:var(--color4);
+	padding:0 10%;
+}
+#alarm_body tr:nth-child(1) th  a:hover.nextm {
+	color:var(--color2);
+	text-shadow:2px 2px 3px Black;
+}
+#alarm_body tr:nth-child(1) th  a:active.nextm {
+	color:LightGrey;
+	text-shadow:2px 2px 3px Black;
+}
+a span {
+	width:100%;
+	height:100%;
+}

@@ -72,11 +72,11 @@ Otherwise, you should be here: http://cat5cybercanes.org/ */
     background: #333;
     background: rgba(0,0,0,.8);
     border-radius: 5px;
-    bottom: -44px;
+    bottom: -24px;
     color: #fff;
     content: attr(title);
-    left: 20%;
-    padding: 5px 15px;
+    left: 40%;
+    padding: 5px 5px;
     position: absolute;
     z-index: 98;
     width: 220px;

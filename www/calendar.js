@@ -80,7 +80,7 @@ function calendar()
 }
 
 function eventC() {
-	arr = new Array("Go to Mr. Bishop's house.","b","mahcoon","bill clinton did 9/isis","it was an inside job.","6","7","8","9","10","11","12","13","14","15","frag","17","18","19","20","21","22","23");
+	arr = new Array("Go to Mr. Bishop's house.","b","Mi'Kyng","Work on Batch File","it was an inside joke.","6","7","8","9","10","11","12","13","14","15","frag","17","18","19","20","21","22","23");
 	total = arr.length;
 	for(i=0;i<=total-1;i++){
 document.getElementsByClassName("tooltip")[i].title = arr[i];}

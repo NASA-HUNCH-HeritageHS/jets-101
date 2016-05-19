@@ -39,13 +39,15 @@ Do the following if you're using your customized build of modernizr (http://www.
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <script src="respond.min.js"></script>
+        <link rel="stylesheet" media="screen, print, handheld" type="text/css" href="alarms.css" />
+        <script src="alarms.js"></script>
 </head>
 <body>
 <div class="gridContainer clearfix">
 <!--href="indexl.html"-->
 <nav>
 	<ul>
-	<li><a>Jets-101 - Schedule</a></li>
+	<li><a>Jets-101 - Alarms</a></li>
 	</ul>
 	<ul style="float:right;">
 	<li><i class="material-icons md-dark" ><a>more_vert</a></i>
@@ -63,9 +65,10 @@ Do the following if you're using your customized build of modernizr (http://www.
 
 
 <div id="Body">
-<p id="t1" style="text-indent:30px;">null</p><br />
-  
-<p id="t1" style="text-indent:30px;">null</p><br /></div>
+<script type="text/javascript">
+            alarms();
+			eventA();
+        </script>
 </div>
 </body>
 <footer>
