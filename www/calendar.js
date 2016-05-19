@@ -1,3 +1,4 @@
+
 function setStyle(id,style,value)
 {
     id.style[style] = value;
@@ -9,11 +10,12 @@ function opacity(el,opacity)
         setStyle(el,"-khtml-opacity",opacity/0);
         setStyle(el,"opacity",opacity/0);
 }
+
 function calendar()
 {
         var date = new Date();
+		month = date.getMonth();
         var day = date.getDate();
-        var month = date.getMonth();
         var year = date.getYear();
         if(year<=200)
         {
@@ -34,27 +36,27 @@ function calendar()
                 beg_j=setDate(0);
         }
         beg_j = beg_j.getDay();
-        document.write('<table class="cal_calendar" onload="opacity(document.getElementById(\'cal_body\'),0);"><tbody id="cal_body"><tr><th colspan="7"> <a class="prevm">&#10094</a> '+date_today+' <a class="nextm">&#10095</a> </th></tr>');
-        document.write('<tr class="cal_d_weeks"><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>');
+        document.write('<table id="calendarRemove" class="cal_calendar" onload="opacity(document.getElementById(\'cal_body\'),0);"><tbody id="cal_body"  ><tr  ><th colspan="7"  > <a onclick="prev()" class="prevm"  >&#10094</a> '+date_today+' <a onclick="next()" class="nextm"  >&#10095</a> </th></tr>');
+        document.write('<tr class="cal_d_weeks" ><th >Sun</th><th >Mon</th><th >Tue</th><th >Wed</th><th >Thu</th><th >Fri</th><th >Sat</th></tr><tr >');
         week = 0;
         for(i=1;i<=beg_j;i++)
         {
-                document.write('<td class="cal_days_bef_aft">'+(days_in_month[month-1]-beg_j+i)+'</td>');
+                document.write('<td class="cal_days_bef_aft" >'+(days_in_month[month-1]-beg_j+i)+'</td>');
                 week++;
         }
         for(i=1;i<=total;i++)
         {
                 if(week==0)
                 {
-                        document.write('<tr>');
+                        document.write('<tr >');
                 }
                 if(day==i)
                 {
-                        document.write('<td class="cal_today"><a class="tooltip"><span title=" ">'+i+'</span></a></td>');
+                        document.write('<td class="cal_today" ><a   class="tooltip"><span  title=" ">'+i+'</span></a></td>');
                 }
                 else
                 {
-                        document.write('<td><a class="tooltip"><span title=" ">'+i+'</span></a></td>');
+                        document.write('<td ><a  class="tooltip"><span  title=" ">'+i+'</span></a></td>');
                 }
                 week++;
                 if(week==7)
@@ -65,7 +67,7 @@ function calendar()
         }
         for(i=1;week!=0;i++)
         {
-                document.write('<td class="cal_days_bef_aft">'+i+'</td>');
+                document.write('<td  class="cal_days_bef_aft">'+i+'</td>');
                 week++;
                 if(week==7)
                 {
@@ -76,14 +78,22 @@ function calendar()
         document.write('</tbody></table>');
         opacity(document.getElementById('cal_body'),255);
         return true;
-		
 }
-
+function next() {
+month++;
+redraw();
+}
+function prev() {
+month--;
+redraw();
+}
 function eventC() {
-	arr = new Array("Go to Mr. Bishop's house.","b","Mi'Kyng","Work on Batch File","it was an inside joke.","6","7","8","9","10","11","12","13","14","15","frag","17","18","19","20","21","22","23");
-	total = arr.length;
-	for(i=0;i<=total-1;i++){
-document.getElementsByClassName("tooltip")[i].title = arr[i];}
+	arr = new Array("Go to Charles' house.","b");
 	
-	
+	document.getElementsByClassName("tooltip")[0].title = arr[0];
+}
+function redraw() {
+	var elem = document.getElementById("calendarRemove");
+	elem.remove();
+	calendar();
 }
