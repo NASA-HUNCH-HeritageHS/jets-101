@@ -13,10 +13,24 @@ function opacity(el,opacity)
 
 function calendar()
 {
+	
         var date = new Date();
-		month = date.getMonth();
-        var day = date.getDate();
-        var year = date.getYear();
+		if (localStorage.getItem("month") === null){
+			month = date.getMonth();
+		}
+		else {
+			month = localStorage.getItem("month");
+		}
+		
+		if (localStorage.getItem("year") === null){
+			year = date.getYear();
+		}
+		else {
+			year = localStorage.getItem("year");
+		}
+		
+		
+        
         if(year<=200)
         {
                 year += 1900;
@@ -28,15 +42,30 @@ function calendar()
                 days_in_month[1]=29;
         }
         total = days_in_month[month];
-        var date_today = day+' '+months[month]+' '+year;
+		
+		if (month != date.getMonth() & year != date.getYear()){
+			day=-1;
+			
+			date_today = months[month]+' '+year;
+		}
+		else{
+		day = date.getDate();
+		date_today = day+' '+months[month]+' '+year;
+		}
+		
+        date.setMonth(month);
+		date.setFullYear(year);
+		
         beg_j = date;
         beg_j.setDate(1);
+		beg_j.setMonth(month);
+		beg_j.setYear(year);
         if(beg_j.getDate()==2)
         {
                 beg_j=setDate(0);
         }
         beg_j = beg_j.getDay();
-        document.write('<table id="calendarRemove" class="cal_calendar" onload="opacity(document.getElementById(\'cal_body\'),0);"><tbody id="cal_body"  ><tr  ><th colspan="7"  > <a onclick="prev()" class="prevm"  >&#10094</a> '+date_today+' <a onclick="next()" class="nextm"  >&#10095</a> </th></tr>');
+        document.write('<table class="cal_calendar" onload="opacity(document.getElementById(\'cal_body\'),0);"><tbody id="cal_body"  ><tr  ><th colspan="7"  > <a onclick="prev()" class="prevm"  >&#10094</a> '+date_today+' <a onclick="next()" class="nextm"  >&#10095</a> </th></tr>');
         document.write('<tr class="cal_d_weeks" ><th >Sun</th><th >Mon</th><th >Tue</th><th >Wed</th><th >Thu</th><th >Fri</th><th >Sat</th></tr><tr >');
         week = 0;
         for(i=1;i<=beg_j;i++)
@@ -76,24 +105,111 @@ function calendar()
                 }
         }
         document.write('</tbody></table>');
+		document.write('<a class="material-icons" oncClick="addE()">add</a>');
         opacity(document.getElementById('cal_body'),255);
         return true;
+	
+		
+		if (month = 4){dataSet = "may";}
 }
-function next() {
-month++;
-redraw();
-}
-function prev() {
-month--;
-redraw();
+function addE() {
+	localStorage.pushArrayItem('may','rekt');
+	redraw();
 }
 function eventC() {
-	arr = new Array("Go to Charles' house.","b");
+	arr = localStorage.getArray("may");
 	
-	document.getElementsByClassName("tooltip")[0].title = arr[0];
+	events = arr.length;
+	for(i=0;i<=events-1;i++){
+		document.getElementsByClassName("tooltip")[i].title = localStorage.getArray("may");
+	}
+}
+
+
+
+
+
+
+function next() {
+month++;
+
+if(month>11){
+	month=0;
+	year++;
+	localStorage.setItem("month",month)
+	localStorage.setItem("year",year)
+	redraw();
+}
+else{
+localStorage.setItem("month",month)
+localStorage.setItem("year",year)
+redraw();}
+}
+
+function prev() {
+	month--;
+	
+if(month<0){
+	month=11;
+	year--;
+	localStorage.setItem("month",month)
+	localStorage.setItem("year",year)
+	redraw();
+}
+else{
+localStorage.setItem("month",month)
+localStorage.setItem("year",year)
+redraw();
+}
 }
 function redraw() {
-	var elem = document.getElementById("calendarRemove");
-	elem.remove();
-	calendar();
+	location.reload(true);
+	eventC();
+}
+
+
+
+Storage.prototype.getArray = function(arrayName) {
+  var thisArray = [];
+  var fetchArrayObject = this.getItem(arrayName);
+  if (typeof fetchArrayObject !== 'undefined') {
+    if (fetchArrayObject !== null) { thisArray = JSON.parse(fetchArrayObject); }
+  }
+  return thisArray;
+}
+
+Storage.prototype.pushArrayItem = function(arrayName,arrayItem) {
+  var existingArray = this.getArray(arrayName);
+  existingArray.push(arrayItem);
+  this.setItem(arrayName,JSON.stringify(existingArray));
+}
+
+Storage.prototype.popArrayItem = function(arrayName) {
+  var arrayItem = {};
+  var existingArray = this.getArray(arrayName);
+  if (existingArray.length > 0) {
+    arrayItem = existingArray.pop();
+    this.setItem(arrayName,JSON.stringify(existingArray));
+  }
+  return arrayItem;
+}
+
+Storage.prototype.shiftArrayItem = function(arrayName) {
+  var arrayItem = {};
+  var existingArray = this.getArray(arrayName);
+  if (existingArray.length > 0) {
+    arrayItem = existingArray.shift();
+    this.setItem(arrayName,JSON.stringify(existingArray));
+  }
+  return arrayItem;
+}
+
+Storage.prototype.unshiftArrayItem = function(arrayName,arrayItem) {
+  var existingArray = this.getArray(arrayName);
+  existingArray.unshift(arrayItem);
+  this.setItem(arrayName,JSON.stringify(existingArray));
+}
+
+Storage.prototype.deleteArray = function(arrayName) {
+  this.removeItem(arrayName);
 }
