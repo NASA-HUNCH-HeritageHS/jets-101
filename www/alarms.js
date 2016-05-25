@@ -76,16 +76,25 @@ document.getElementsByClassName("tooltip")[i].title = arr[i];}
 } */
 // 
 
-function eventA() {
+/* function eventA() {
 	arr = new Array("Go to Mr. Bishop's house.","b","Mi'Kyng","Work on Batch File","it was an inside joke.","6","7","8","9","10","11","12","13","14","15","frag","17","18","19","20","21","22","23");
 	total = arr.length;
 	for(i=0;i<=total-1;i++){
-document.getElementsByClassName("tooltip")[i].title = arr[i];}
+document.getElementsByClassName("tooltip")[i].title = arr[i];}} */
 	
+function eventA() {
+	alarmArray = new Array("32","324");
+localStorage.setItem("alarmArray", JSON.stringify(alarmArray));
+var alarmArray2 = localStorage.getItem("alarmArray");
+alarmArray = JSON.parse(alarmArray2.split(",")); //var alarmArray is now re-loaded!
+
+console.log(alarmArray2);
+console.log(alarmArray);
+total = alarmArray.length;
+	for(i=0;i<=total-1;i++){
+document.getElementsByClassName("tooltip")[i].title = alarmArray[i];}
+}
+function setAlarmArray(string){
 	
 }
-
-
-
-
 
